@@ -1,0 +1,2 @@
+const headers=()=>{const role=localStorage.getItem('legal-role')||'sales';return {'Content-Type':'application/json','x-user-id':role==='legal'?'legal-001':'sales-001','x-role':role,'x-department-id':role==='legal'?'legal':'sales-east','x-groups':role==='legal'?'all,legal':'all,sales'};};
+export async function api<T>(path:string,init?:RequestInit):Promise<T>{const res=await fetch(path,{...init,headers:{...headers(),...(init?.headers||{})}});if(!res.ok)throw new Error(`${res.status} ${await res.text()}`);return res.json();}

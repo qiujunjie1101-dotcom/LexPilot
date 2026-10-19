@@ -1,0 +1,18 @@
+services:
+  api:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_PATH: /data/legal_agent.db
+    volumes:
+      - legal_data:/data
+    ports:
+      - "8000:8000"
+  frontend:
+    build: ./frontend
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+volumes:
+  legal_data:
