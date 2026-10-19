@@ -3,8 +3,10 @@ __pycache__/
 .pytest_cache/
 node_modules/
 dist/
-data/*.db
+**/data/*.db
+backend/tests/*.db
 .env
 .env.*
 !.env.example
 .DS_Store
+e2e-*.png
