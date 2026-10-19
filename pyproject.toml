@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contract-reviewer-agent"
+version = "1.0.0"
+description = "Enterprise legal contract review agent"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.116,<1.0",
+    "uvicorn[standard]>=0.35,<1.0",
+    "pydantic>=2.11,<3.0",
+    "langgraph>=0.6,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4,<10.0",
+    "httpx>=0.28,<1.0",
+]
+migrations = [
+    "alembic>=1.13,<2.0",
+    "sqlalchemy>=2.0,<3.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "backend/src"}
+
+[tool.setuptools.packages.find]
+where = ["backend/src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["backend/src", "backend"]
+testpaths = ["backend/tests"]

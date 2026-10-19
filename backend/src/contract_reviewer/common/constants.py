@@ -1,0 +1,29 @@
+"""全局系统常量、状态枚举与红线规则标识。"""
+from __future__ import annotations
+
+RISK_WEIGHT: dict[str, int] = {'low': 5, 'medium': 20, 'high': 40, 'critical': 70}
+
+RISK_LEVELS = ('low', 'medium', 'high', 'critical')
+SEVERITIES = ('low', 'medium', 'high', 'critical')
+
+LEGAL_ROLES = frozenset({'legal', 'legal_admin'})
+
+REVIEW_STATUS_WAITING_LEGAL = 'waiting_legal_review'
+REVIEW_STATUS_PRECHECK_PASSED = 'precheck_passed'
+REVIEW_STATUS_LEGAL_APPROVED = 'legal_approved'
+REVIEW_STATUS_LEGAL_REJECTED = 'legal_rejected'
+
+LEGAL_REVIEW_STATUS_PENDING = 'pending'
+LEGAL_REVIEW_STATUS_APPROVED = 'approved'
+LEGAL_REVIEW_STATUS_REJECTED = 'rejected'
+
+RULE_PAYMENT_ABOVE_90 = 'LEGAL-PAY-001'
+RULE_PAYMENT_ABOVE_60 = 'LEGAL-PAY-002'
+RULE_PAYMENT_TRIGGER = 'LEGAL-PAY-003'
+RULE_UNLIMITED_LIABILITY = 'LEGAL-LIAB-001'
+RULE_BACKGROUND_IP = 'LEGAL-IP-001'
+RULE_SOURCE_CODE_DELIVERY = 'LEGAL-IP-002'
+RULE_AUTO_RENEWAL = 'LEGAL-RENEW-001'
+RULE_UNILATERAL_TERMINATION = 'LEGAL-TERM-001'
+RULE_JURISDICTION = 'LEGAL-JUR-001'
+RULE_MISSING_PREFIX = 'LEGAL-MISSING-'
